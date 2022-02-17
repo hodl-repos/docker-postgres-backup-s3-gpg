@@ -1,8 +1,12 @@
-FROM postgres:10.4
+FROM postgres:14-alpine
+
+RUN apk update && apk upgrade && apk add --no-cache ca-certificates
+# get latest ca-certificates
+RUN update-ca-certificates
 
 ENV AWS_ACCESS_KEY_ID="" \
     AWS_SECRET_ACCESS_KEY="" \
-    AWS_DEFAULT_REGION="us-east-1" \
+    AWS_DEFAULT_REGION="" \
     AWS_ENDPOINT="" \
     BACKUP_SCHEDULE="0 0 * * *" \
     BACKUP_BUCKET="backup" \
