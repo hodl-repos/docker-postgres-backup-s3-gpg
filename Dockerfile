@@ -23,6 +23,7 @@ RUN apk add py3-pip \
     && pip3 install --no-cache --upgrade pip setuptools \
     && pip3 install awscli \
     && rm -rf /var/lib/{apt,dpkg,cache,log}/ \
+    && rm -rf /var/cache/apk/* \
     && echo "Done."
 
 COPY *.sh /usr/local/bin/
