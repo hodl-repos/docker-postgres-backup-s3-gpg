@@ -17,14 +17,11 @@ ENV AWS_ACCESS_KEY_ID="" \
 
 #   POSTGRES_HOST POSTGRES_USER POSTGRES_PASSWORD POSTGRES_DB
 
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-           python3 python3-pip python3-setuptools python3-wheel \
-           cron wget \
+ENV PYTHONUNBUFFERED=1
+RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
+RUN apk add py3-pip \
+    && pip3 install --no-cache --upgrade pip setuptools \
     && pip3 install awscli \
-    && apt-get clean autoclean \
-    && apt-get autoremove --yes \
-    && rm -rf /var/lib/{apt,dpkg,cache,log}/ \
     && echo "Done."
 
 COPY README.md /
