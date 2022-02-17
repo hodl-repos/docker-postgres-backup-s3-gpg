@@ -2,6 +2,9 @@
 
 **this repository is on hodl by us so oneone can delete it (it's usefull)**
 
+TLDR: 
+> https://github.com/hodl-repos/docker-postgres-backup-s3-gpg/pkgs/container/docker-postgres-backup-s3-gpg
+
 This docker image backup and encrypt PostgreSQL database to S3/Minio periodically.
 
 ## Usage
