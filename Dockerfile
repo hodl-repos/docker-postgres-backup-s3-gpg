@@ -19,7 +19,7 @@ ENV AWS_ACCESS_KEY_ID="" \
 
 ENV PYTHONUNBUFFERED=1
 RUN apk add --no-cache python3 && ln -sf python3 /usr/bin/python
-RUN apk add --no-cache py3-pip gnupg \
+RUN apk add --no-cache py3-pip gnupg openrc \
     && pip3 install --no-cache --upgrade pip setuptools \
     && pip3 install awscli \
     && rm -rf /var/lib/{apt,dpkg,cache,log}/ \
