@@ -37,5 +37,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: hodl-repos/docker-postgres-backup-s3-gpg:latest
           labels: ${{ steps.meta.outputs.labels }}
