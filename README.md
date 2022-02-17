@@ -1,5 +1,7 @@
 # Backup PostgreSQL Database to S3/Minio
 
+**this repository is on hodl by us so oneone can delete it (it's usefull)**
+
 This docker image backup and encrypt PostgreSQL database to S3/Minio periodically.
 
 ## Usage
