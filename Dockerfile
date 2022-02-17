@@ -18,8 +18,8 @@ ENV AWS_ACCESS_KEY_ID="" \
 #   POSTGRES_HOST POSTGRES_USER POSTGRES_PASSWORD POSTGRES_DB
 
 ENV PYTHONUNBUFFERED=1
-RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
-RUN apk add py3-pip \
+RUN apk add --no-cache python3 && ln -sf python3 /usr/bin/python
+RUN apk add --no-cache py3-pip gnupg \
     && pip3 install --no-cache --upgrade pip setuptools \
     && pip3 install awscli \
     && rm -rf /var/lib/{apt,dpkg,cache,log}/ \
