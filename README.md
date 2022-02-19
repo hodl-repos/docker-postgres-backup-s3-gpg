@@ -1,6 +1,6 @@
 # Backup PostgreSQL Database to S3/Minio
 
-**this repository is on hodl by us so oneone can delete it (it's usefull)**
+**this repository is on hodl by us so oneone can delete it (now with psql 14)**
 
 TLDR: 
 > https://github.com/hodl-repos/docker-postgres-backup-s3-gpg/pkgs/container/docker-postgres-backup-s3-gpg
