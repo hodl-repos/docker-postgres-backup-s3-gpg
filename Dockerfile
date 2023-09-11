@@ -1,4 +1,4 @@
-FROM postgres:15
+FROM postgres:14
 
 ENV AWS_ACCESS_KEY_ID="" \
     AWS_SECRET_ACCESS_KEY="" \
@@ -15,8 +15,8 @@ ENV AWS_ACCESS_KEY_ID="" \
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-           python3 python3-pip python3-setuptools python3-wheel \
-           cron wget \
+    python3 python3-pip python3-setuptools python3-wheel \
+    cron wget \
     && pip3 install awscli \
     && apt-get clean autoclean \
     && apt-get autoremove --yes \
