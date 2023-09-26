@@ -20,16 +20,9 @@ function s3() {
     aws "${AWS_CLI_OPTS[@]}" s3 "$@"
 }
 
-if [[ -z "${POSTGRES_ALLDB}" ]]; then
-  pg_dump -h "${POSTGRES_HOST}" -U "${POSTGRES_USER}" "${POSTGRES_DB}" 2>/dev/null \
-    | gpg --encrypt -r "${PGP_KEY}" --compress-algo zlib --quiet \
-    | s3 cp - "s3://${S3_FILENAME}" \
-    || s3 rm "s3://${S3_FILENAME}"
-else
-  pg_dumpall -h "${POSTGRES_HOST}" -U "${POSTGRES_USER}" 2>/dev/null \
-    | gpg --encrypt -r "${PGP_KEY}" --compress-algo zlib --quiet \
-    | s3 cp - "s3://${S3_FILENAME}" \
-    || s3 rm "s3://${S3_FILENAME}"
-fi
+pg_dump -h "${POSTGRES_HOST}" -U "${POSTGRES_USER}" "${POSTGRES_DB}" 2>/dev/null \
+  | gpg --encrypt -r "${PGP_KEY}" --compress-algo zlib --quiet \
+  | s3 cp - "s3://${S3_FILENAME}" \
+  || s3 rm "s3://${S3_FILENAME}"
 
 echo "$S3_FILENAME"
