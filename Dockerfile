@@ -11,7 +11,7 @@ ENV AWS_ACCESS_KEY_ID="" \
     PGP_KEY="" \
     PGP_KEYSERVER="hkp://keys.gnupg.net"
 
-#   POSTGRES_HOST POSTGRES_USER POSTGRES_PASSWORD POSTGRES_DB
+#   POSTGRES_HOST POSTGRES_USER POSTGRES_PASSWORD POSTGRES_DB POSTGRES_ALLDB
 
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends cron wget  \
