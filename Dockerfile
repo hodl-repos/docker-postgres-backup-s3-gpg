@@ -1,4 +1,4 @@
-FROM postgres:16
+FROM postgres:17
 
 ENV AWS_ACCESS_KEY_ID="" \
     AWS_SECRET_ACCESS_KEY="" \
