@@ -21,7 +21,7 @@ function s3() {
 }
 
 pg_dump -h "${POSTGRES_HOST}" -U "${POSTGRES_USER}" "${POSTGRES_DB}" 2>/dev/null \
-  | gpg --encrypt -r "${PGP_KEY}" --compress-algo zlib --quiet \
+  | gpg --encrypt -r "${PGP_KEY}" --compress-algo zlib --compress-level 9 --quiet \
   | s3 cp - "s3://${S3_FILENAME}" \
   || s3 rm "s3://${S3_FILENAME}"
 
